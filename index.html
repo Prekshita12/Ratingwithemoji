@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rating</title>
+    <link rel="stylesheet" href="rating.js"  type="text/JavaScript">
+    <style>
+        .slider{
+            -webkit-appearance: none;
+            width: 200px;
+            height: 10px;
+            /* background: linear-gradient(#e66465, #9198e5); */
+            background: black;
+            border-radius: 5px;
+            box-shadow: -1px 5px 26px -3px whitesmoke;
+        }
+        .slider::-webkit-slider-thumb{
+            -webkit-appearance: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: wheat;
+            cursor: pointer;
+        }
+        body{
+            /* background-color: #9198e5; */
+            background: linear-gradient(#e66465, #9198e5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .output{
+            color: white;
+            position: relative;
+            top: 35px;
+            font-size: 35px;
+
+        }
+        .emoji{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 120px;
+            position: relative;
+            bottom: 90px;
+            width: 120px;
+            height: 120px;
+        }
+        .text{
+            position: relative;
+            bottom: 100px;
+            color: black;
+            font-size: 35px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="text"> USER RATING WITH EMOJI EXPERIENCE</div>
+    <div class="emoji"></div>
+    <div>
+        <input  class=" slider"  type="range" name="value" min="1" max="5" id="myslider">
+    </div>
+    <div class="output">Ratings:<span id="inoutput"></span></div>
+<script> 
+   var slider=document.getElementById("myslider")
+var output=document.getElementById("inoutput")
+const emoji_array=['&#128545;',	'&#128543;','&#128542;','&#128578;','&#128515;']
+document.addEventListener('mousemove',movemouth)
+
+function movemouth(){
+    let sliderval=slider.value
+    switch(sliderval){
+        case '1':document.querySelector(".emoji").innerHTML=emoji_array[0]
+                 break;
+        case '2':document.querySelector(".emoji").innerHTML=emoji_array[1]
+                 break;
+        case '3':document.querySelector(".emoji").innerHTML=emoji_array[2]
+                 break;
+        case '4':document.querySelector(".emoji").innerHTML=emoji_array[3]
+                 break;
+         case '5':document.querySelector(".emoji").innerHTML=emoji_array[4]
+                 break;
+    }
+}
+output.innerHTML=slider.value
+slider.oninput=function(){
+    output.innerHTML=slider.value 
+}
+
+</script> 
+</body>
+</html>
